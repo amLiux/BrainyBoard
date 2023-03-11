@@ -25,6 +25,7 @@ Before starting the chatbot, make sure to create a `.env` file by copying the `e
 
 The `.env` file contains environment variables that are necessary for the chatbot to function properly. Here are the environment variables that need to be filled in:
 
+
 ```bash
 slack_token=<your_slack_bot_token>
 signing_secret=<your_slack_signing_secret>
@@ -36,14 +37,21 @@ destination_language=<your_destination_language>
 openai_api_key=<your_openai_api_key>
 ```
 
-- `slack_token`: The Slack bot token that you received when you created your bot. You can find this token in the "OAuth & Permissions" page of your Slack app settings.
-- `signing_secret`: The signing secret that you received when you created your Slack app. You can find this secret in the "Basic Information" page of your Slack app settings.
-- `trello_token`: The Trello API token that you obtained by following the Trello API documentation.
-- `trello_api_key`: The Trello API key that you obtained by following the Trello API documentation.
-- `board_id`: The ID of the Trello board that you want to use for ticket management.
-- `slack_endpoint`: The endpoint of your Slack app. This value should be `slack/events`.
-- `destination_language`: The destination language for translation. You can choose any language supported by the Google Cloud Translate API.
-- `openai_api_key`: The OpenAI API key that you obtained by following the OpenAI API documentation.
+- `slack_token`: The Slack API token for your bot user. You can find instructions on how to create a Slack bot and obtain its token in the [Slack documentation](https://api.slack.com/authentication/basics).
+
+- `signing_secret`: The signing secret for your Slack bot. You can find instructions on how to obtain this secret in the [Slack documentation](https://api.slack.com/authentication/verifying-requests-from-slack).
+
+- `trello_token`: The Trello API token for your account. You can generate a token by following the instructions in the [Trello documentation](https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/).
+
+- `trello_api_key`: The Trello API key for your account. You can generate an API key by following the instructions in the [Trello documentation](https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/).
+
+- `board_id`: The ID of the Trello board you want to access. You can find the ID in the board URL or by using the [Trello API](https://developer.atlassian.com/cloud/trello/rest/api-group-boards/).
+
+- `slack_endpoint`: The Slack Events API endpoint for your bot. You can find instructions on how to set up this endpoint in the [Slack documentation](https://api.slack.com/events-api). Most of the times this is setup to `slack/events`
+
+- `destination_language`: The language to translate the user's message to before sending it to the ChatGPT model. You can find a list of supported languages and their language codes in the [Google Cloud Translate documentation](https://cloud.google.com/translate/docs/languages).
+
+- `openai_api_key`: The API key for the OpenAI GPT-3 model. You can find instructions on how to obtain this key in the [OpenAI documentation](https://beta.openai.com/docs/api-reference/authentication).
 
 To start the chatbot, run the following command in the `BrainyBoard` directory:
 `python bot.py`
